@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn {
+    @apply min-h-[2rem] flex justify-center items-center gap-2 px-2 font-bold transition-all hover:bg-black/10 active:bg-black/20 active:scale-95 rounded-lg;
+  }
+
+  tr > th:first-child,
+  tr > td:first-child {
+    @apply rounded-l-std bg-white sticky left-0;
+  }
+
+  tr > th:last-child,
+  tr > td:last-child {
+    @apply rounded-r-std;
+  }
+}
+
+.hide-scroll-bar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scroll-bar::-webkit-scrollbar {
+  display: none;
+}
