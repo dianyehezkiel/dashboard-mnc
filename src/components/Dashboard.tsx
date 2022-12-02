@@ -11,14 +11,15 @@ interface CoinsData extends Record<string, string | number> {
 }
 
 function Dashboard() {
-  const [coinsData, setCoinsData] = useState<CoinsData[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [coinsData, setCoinsData] = useState<CoinsData[]>([]); // coin data state
+  const [loading, setLoading] = useState(true); // loading state
 
   useEffect(() => {
     async function fetchData() {
       const { data, status } = await axios.get<CoinsData[]>(
         'https://api.coingecko.com/api/v3/coins/markets?vs_currency=idr&per_page=3',
       );
+      // only set coin state and set loading if request successful
       if (status === 200) {
         setCoinsData(data);
         setLoading(false);
@@ -26,13 +27,15 @@ function Dashboard() {
     }
 
     fetchData();
-  }, []);
+  }, []); // no deps because data fetched only on load
 
   return (
     <div className="relative flex flex-col gap-8 sm:gap-11 min-h-[calc(100vh-4rem)] p-std sm:p-8 mb-16 sm:mb-0">
+      {/* Welcome text */}
       <p className="text-[1.75rem] font-bold leading-none">
         Hi Radhika, welcome back!
       </p>
+      {/* Client list */}
       <div>
         <p className="text-xl font-bold">Your client list</p>
         <p className="text-sm">
@@ -52,6 +55,7 @@ function Dashboard() {
           </div>
         </div>
       </div>
+      {/* Approval list */}
       <div className="mb-16">
         <div className="flex justify-between items-center">
           <div>
@@ -60,6 +64,7 @@ function Dashboard() {
               You can find the recent on-going approvals here
             </p>
           </div>
+          {/* Create approval button */}
           <button className="btn h-8 bg-primary hover:bg-primary active:bg-primary text-white rounded-full px-4 md:px-6">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -78,6 +83,7 @@ function Dashboard() {
             <span className="hidden sm:block">Create new approval</span>
           </button>
         </div>
+        {/* Coin data table */}
         <div className="w-full overflow-x-auto">
           <table className="min-w-max w-full mt-6 mb-3 border-separate border-spacing-y-3 rounded-full">
             <thead>
@@ -95,6 +101,7 @@ function Dashboard() {
               </tr>
             </thead>
             <tbody>
+              {/* Only render data when there's data exist */}
               {loading
                 ? null
                 : coinsData.map((coin) => (
@@ -122,11 +129,12 @@ function Dashboard() {
             </tbody>
           </table>
         </div>
-
+        {/* All approvals button/link */}
         <button className="btn text-primary min-h-max px-0 hover:bg-transparent active:bg-transparent leading-none">
           See all approvals here
         </button>
       </div>
+      {/* Copyright text */}
       <p className="absolute bottom-0 inset-x-0 text-center sm:text-right py-6 px-8">
         &copy; Manning&Co. 2022
       </p>

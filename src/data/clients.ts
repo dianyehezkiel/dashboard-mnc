@@ -23,5 +23,5 @@ export const clients: Client[] = [
     icon: rmiIcon,
     name: 'RMI',
     desc: 'RMI is a trusted global verification partner for Asia-Pacific organisations, offering a highly personalised and comprehensive background screening service.',
-  }
+  },
 ];

@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState } from 'react';
 
 function TopBar() {
   const [isSearching, setIsSearching] = useState(false);
@@ -61,12 +61,15 @@ function TopBar() {
         </svg>
         <div className="flex-shrink-0 flex gap-1">
           {/* Small screen search button */}
-          <button className="btn text-white" onClick={() => {
-            setIsSearching(true)
-            if (inputRef.current !== null) {
-              inputRef.current.focus();
-            }
-            }}>
+          <button
+            className="btn text-white"
+            onClick={() => {
+              setIsSearching(true);
+              if (inputRef.current !== null) {
+                inputRef.current.focus();
+              }
+            }}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -102,7 +105,11 @@ function TopBar() {
           </button>
         </div>
       </div>
-      <div className={`flex w-full h-16 bg-white shadow-below -z-20 sm:z-0 transition-all absolute sm:static ${isSearching ? 'top-16' : 'top-0'}`}>
+      <div
+        className={`flex w-full h-16 bg-white shadow-below -z-20 sm:z-0 transition-all absolute sm:static ${
+          isSearching ? 'top-16' : 'top-0'
+        }`}
+      >
         {/* Search input field */}
         <div className="relative flex-grow-1 w-full">
           <input
@@ -148,7 +155,7 @@ function TopBar() {
             </svg>
             Logout
           </button>
-          {/* Medium-Large screen menu button */}
+          {/* Medium-large screen menu button */}
           <button className="btn min-h-0 h-full">
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -1,6 +1,6 @@
-import Dashboard from "./components/Dashboard";
-import NavMenu from "./components/NavMenu";
-import TopBar from "./components/TopBar";
+import Dashboard from './components/Dashboard';
+import NavMenu from './components/NavMenu';
+import TopBar from './components/TopBar';
 
 function App() {
   return (
