@@ -1,4 +1,4 @@
-import profilePic from '../profile-pic.png';
+import profilePic from '../data/profile-pic.png';
 
 function NavMenu() {
   return (

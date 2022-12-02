@@ -29,7 +29,7 @@ function Dashboard() {
   }, []);
 
   return (
-    <div className="flex flex-col gap-11 p-8">
+    <div className="relative flex flex-col gap-11 min-h-[calc(100vh-4rem)] p-8">
       <p className="text-[1.75rem] font-bold leading-none">
         Hi Radhika, welcome back!
       </p>
@@ -52,7 +52,7 @@ function Dashboard() {
           </div>
         </div>
       </div>
-      <div>
+      <div className='mb-16'>
         <div className="flex justify-between items-center">
           <div>
             <p className="text-xl font-bold">Recent approvals</p>
@@ -122,7 +122,7 @@ function Dashboard() {
         </table>
         <button className='btn text-primary min-h-max px-0 hover:bg-transparent active:bg-transparent leading-none'>See all approvals here</button>
       </div>
-      <p className='text-right'>&copy; Manning&Co. 2022</p>
+      <p className='absolute bottom-0 inset-x-0 text-right py-6 px-8'>&copy; Manning&Co. 2022</p>
     </div>
   );
 }
