@@ -29,7 +29,7 @@ function Dashboard() {
   }, []);
 
   return (
-    <div className="relative flex flex-col gap-11 min-h-[calc(100vh-4rem)] p-8">
+    <div className="relative flex flex-col gap-8 sm:gap-11 min-h-[calc(100vh-4rem)] p-std sm:p-8 mb-16 sm:mb-0">
       <p className="text-[1.75rem] font-bold leading-none">
         Hi Radhika, welcome back!
       </p>
@@ -52,7 +52,7 @@ function Dashboard() {
           </div>
         </div>
       </div>
-      <div className='mb-16'>
+      <div className="mb-16">
         <div className="flex justify-between items-center">
           <div>
             <p className="text-xl font-bold">Recent approvals</p>
@@ -60,7 +60,7 @@ function Dashboard() {
               You can find the recent on-going approvals here
             </p>
           </div>
-          <button className="btn h-8 bg-primary hover:bg-primary active:bg-primary text-white rounded-full px-6">
+          <button className="btn h-8 bg-primary hover:bg-primary active:bg-primary text-white rounded-full px-4 md:px-6">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -75,54 +75,61 @@ function Dashboard() {
                 d="M12 4.5v15m7.5-7.5h-15"
               />
             </svg>
-            Create new approval
+            <span className="hidden sm:block">Create new approval</span>
           </button>
         </div>
-        <table className="w-full mt-6 mb-3 border-separate border-spacing-y-3 rounded-full">
-          <thead>
-            <tr className="h-11 bg-white rounded-full shadow-below">
-              {['Image', 'Name', 'Current price', 'Market cap'].map(
-                (colTitle) => (
-                  <th
-                    key={colTitle}
-                    className="text-start text-sm font-normal px-4"
-                  >
-                    {colTitle}
-                  </th>
-                ),
-              )}
-            </tr>
-          </thead>
-          <tbody>
-            {loading
-              ? null
-              : coinsData.map((coin) => (
-                  <tr
-                    key={coin.name}
-                    className="h-16 bg-white rounded-full shadow-below"
-                  >
-                    <td className="px-4">
-                      <img
-                        className="w-11 h-11"
-                        src={coin.image}
-                        alt={`${coin.name} icon`}
-                        aria-hidden
-                      />
-                    </td>
-                    <td className="px-4 font-bold">{coin.name}</td>
-                    <td className="px-4 font-bold">
-                      Rp. {coin.current_price.toLocaleString('id')}
-                    </td>
-                    <td className="px-4 font-bold">
-                      Rp. {coin.market_cap.toLocaleString('id')}
-                    </td>
-                  </tr>
-                ))}
-          </tbody>
-        </table>
-        <button className='btn text-primary min-h-max px-0 hover:bg-transparent active:bg-transparent leading-none'>See all approvals here</button>
+        <div className="w-full overflow-x-auto">
+          <table className="min-w-max w-full mt-6 mb-3 border-separate border-spacing-y-3 rounded-full">
+            <thead>
+              <tr className="h-11 bg-white rounded-full shadow-below">
+                {['Image', 'Name', 'Current price', 'Market cap'].map(
+                  (colTitle) => (
+                    <th
+                      key={colTitle}
+                      className="text-start text-sm font-normal px-4"
+                    >
+                      {colTitle}
+                    </th>
+                  ),
+                )}
+              </tr>
+            </thead>
+            <tbody>
+              {loading
+                ? null
+                : coinsData.map((coin) => (
+                    <tr
+                      key={coin.name}
+                      className="h-16 bg-white rounded-full shadow-below"
+                    >
+                      <td className="px-4">
+                        <img
+                          className="w-11 h-11"
+                          src={coin.image}
+                          alt={`${coin.name} icon`}
+                          aria-hidden
+                        />
+                      </td>
+                      <td className="px-4 font-bold">{coin.name}</td>
+                      <td className="px-4 font-bold">
+                        Rp. {coin.current_price.toLocaleString('id')}
+                      </td>
+                      <td className="px-4 font-bold">
+                        Rp. {coin.market_cap.toLocaleString('id')}
+                      </td>
+                    </tr>
+                  ))}
+            </tbody>
+          </table>
+        </div>
+
+        <button className="btn text-primary min-h-max px-0 hover:bg-transparent active:bg-transparent leading-none">
+          See all approvals here
+        </button>
       </div>
-      <p className='absolute bottom-0 inset-x-0 text-right py-6 px-8'>&copy; Manning&Co. 2022</p>
+      <p className="absolute bottom-0 inset-x-0 text-center sm:text-right py-6 px-8">
+        &copy; Manning&Co. 2022
+      </p>
     </div>
   );
 }

@@ -7,13 +7,13 @@
     @apply min-h-[2rem] flex justify-center items-center gap-2 px-2 font-bold transition-all hover:bg-black/10 active:bg-black/20 active:scale-95 rounded-lg;
   }
 
-  tr > td:first-child,
-  tr > th:first-child {
-    @apply rounded-l-std;
+  tr > th:first-child,
+  tr > td:first-child {
+    @apply rounded-l-std bg-white sticky left-0;
   }
 
-  tr > td:last-child,
-  tr > th:last-child {
+  tr > th:last-child,
+  tr > td:last-child {
     @apply rounded-r-std;
   }
 }
