@@ -17,7 +17,7 @@ function Dashboard() {
   useEffect(() => {
     async function fetchData() {
       const { data, status } = await axios.get<CoinsData[]>(
-        'https://api.coingecko.com/api/v3/coins/markets?vs_currency=idr&per_page=3',
+        'https://api.coingecko.com/api/v3/coins/markets?vs_currency=idr&per_page=10',
       );
       // only set coin state and set loading if request successful
       if (status === 200) {
